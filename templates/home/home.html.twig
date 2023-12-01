@@ -35,23 +35,26 @@
 <section>
   <div id="list" class="container py-5">
     <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
-      {# Card strts #}
-
+      {# Card strts #} {% for travel in travels %}
       <div class="mb-4">
         <div class="col">
           <div class="card h-100">
-            <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top object-fit-cover rounded-top asprat" alt="..." />
+            <img src="{{ travel.picture }}" class="card-img-top object-fit-cover rounded-top asprat" alt="..." />
             <div class="card-body">
-              <h5 class="card-title mb-3">...</h5>
-              <p class="card-text my-1">Town: ...</p>
-              <p class="card-text">Days: ...</p>
-              <a class="btn btn-sm d-block" href="">See more</a>
+              <h5 class="card-title mb-3">{{ travel.country }}</h5>
+              <p class="card-text my-1">Town: {{ travel.town }}</p>
+              <p class="card-text">Days: {{ travel.days }}</p>
+              <div class="btn-group w-100" role="group" aria-label="Basic example">
+                <a class="btn btn-sm btn-info" href="/details/{{ travel.id }}">View</a>
+                <a class="btn btn-sm btn-warning" href="/edit/{{ travel.id }}">Edit</a>
+                <a class="btn btn-sm btn-danger" href="/delete/{{ travel.id }}">Delete</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {# Card ends #}
+      {% endfor %} {# Card ends #}
     </div>
   </div>
 </section>
