@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %} {% block title %}{{ controller_name }} | {{ parent() }}{% endblock %} {% block body %}
+
+<section>
+  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 object-fit-cover" alt="..." />
+        <div class="mb-5 carousel-caption d-none d-md-block bg-dark text-light rounded-pill opacity-75">
+          <h1 class="my-5">Welcome to Viva la Trip!</h1>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 object-fit-cover" alt="..." />
+        <div class="mb-5 carousel-caption d-none d-md-block bg-light text-dark rounded-pill opacity-75">
+          <h1 class="">Let's book a trip!</h1>
+          <a class="btn btn-dark my-2 rounded-pill px-4" href="#list"><i class="fa-solid fa-arrow-down-long"></i><i class="fa-solid fa-arrow-down-long"></i><i class="fa-solid fa-arrow-down-long"></i></a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+<section>
+  <div id="list" class="container py-5">
+    <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
+      {# Card strts #}
+
+      <div class="mb-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top object-fit-cover rounded-top asprat" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title mb-3">...</h5>
+              <p class="card-text my-1">Town: ...</p>
+              <p class="card-text">Days: ...</p>
+              <a class="btn btn-sm d-block" href="">See more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# Card ends #}
+    </div>
+  </div>
+</section>
+{% endblock %}
