@@ -1,4 +1,26 @@
 {% extends 'base.html.twig' %} {% block title %}{{ controller_name }} | {{ parent() }}{% endblock %} {% block body %}
 
-<div class="container my-5 pt-5"></div>
+<div class="container my-5 pt-5">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title mb-3">{{ travel.country }}</h5>
+      <p class="card-text my-1">Town: {{ travel.town }}</p>
+      <p class="card-text my-1">Hotel: {{ travel.hotel }}</p>
+      <p class="card-text">Days: {{ travel.days }}</p>
+      <p class="card-text">Price: &euro;{{ travel.price }}</p>
+      <p class="card-text">Days: {{ travel.description }}</p>
+      {#
+      <p class="card-text">All included: {{ travel.all_included ? 'Yes' : 'No' }}</p>
+      #}
+      <div class="btn-group rounded w-100" role="group" aria-label="Basic example">
+        <a class="btn btn-sm rounded-start btn-info" href="/details/{{ travel.id }}">View</a>
+        <a class="btn btn-sm btn-warning" href="/edit/{{ travel.id }}">Edit</a>
+        <a class="btn btn-sm rounded-end btn-danger" href="/delete/{{ travel.id }}">Delete</a>
+      </div>
+    </div>
+    {##}
+    <img src="{{ travel.picture }}" class="card-img-top object-fit-cover rounded-bottom asprat" alt="..." />
+  </div>
+</div>
+
 {% endblock %}

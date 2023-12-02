@@ -1,20 +1,24 @@
-{% extends 'base.html.twig' %} {% block title %}{{ controller_name }} | {{ parent() }}{% endblock %} {% block body %}
+{% extends 'base.html.twig' %} {% block title %}{{ controller_name }} | {{ parent() }}{% endblock %} {% block body %} {% for message in app.flashes('notice') %}
+<div class="alert alert-success mt-5 pt-5">
+  {{ message }}
+</div>
+{% endfor %}
 
 <section>
   <div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      {# <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button> #}
     </div>
     <div class="carousel-inner h-100">
-      <div class="carousel-item active" data-bs-interval="2000">
+      <div class="carousel-item caro active" data-bs-interval="2000">
         <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 object-fit-cover" alt="..." />
-        <div class="mb-5 carousel-caption d-none d-md-block bg-dark text-light rounded-pill opacity-75">
-          <h1 class="my-5">Welcome to Viva la Trip!</h1>
+        <div class="mb-5 carousel-caption d-none d-md-block bg-dark rounded-pill opacity-75">
+          <h1 class="my-5 text-light">Welcome to Viva la Trip!</h1>
         </div>
       </div>
-      <div class="carousel-item" data-bs-interval="2000">
+      <div class="carousel-item caro" data-bs-interval="2000">
         <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 object-fit-cover" alt="..." />
         <div class="mb-5 carousel-caption d-none d-md-block bg-light text-dark rounded-pill opacity-75">
           <h1 class="">Let's book a trip!</h1>
@@ -35,7 +39,7 @@
 <section>
   <div id="list" class="container py-5">
     <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
-      {# Card strts #} {% for travel in travels %}
+      {% for travel in travels %}
       <div class="mb-4">
         <div class="col">
           <div class="card h-100">
@@ -44,17 +48,17 @@
               <h5 class="card-title mb-3">{{ travel.country }}</h5>
               <p class="card-text my-1">Town: {{ travel.town }}</p>
               <p class="card-text">Days: {{ travel.days }}</p>
-              <div class="btn-group w-100" role="group" aria-label="Basic example">
-                <a class="btn btn-sm btn-info" href="/details/{{ travel.id }}">View</a>
+              <div class="btn-group rounded w-100" role="group" aria-label="Basic example">
+                <a class="btn btn-sm rounded-start btn-info" href="/details/{{ travel.id }}">View</a>
                 <a class="btn btn-sm btn-warning" href="/edit/{{ travel.id }}">Edit</a>
-                <a class="btn btn-sm btn-danger" href="/delete/{{ travel.id }}">Delete</a>
+                <a class="btn btn-sm rounded-end btn-danger" href="/delete/{{ travel.id }}">Delete</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {% endfor %} {# Card ends #}
+      {% endfor %}
     </div>
   </div>
 </section>
