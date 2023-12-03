@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
-use App\Entity\Travel;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
+use App\Entity\Travel;
 use App\Form\TravelType;
-use phpDocumentor\Reflection\Types\This;
+
+
 
 class HomeController extends AbstractController
 {
@@ -92,11 +94,12 @@ class HomeController extends AbstractController
 
 
     #[Route('/delete/{id}', name: 'travel_delete')]
-    public function delete(ManagerRegistry $doctrine, $id)
+    public function delete($id)
     {
+
         $em = $this->getDoctrine()->getManager();
 
-        $travel = $em->getRepository(Travel::class)->find($id);
+        $travel = $em->getRepository('App:Travel')->find($id);
         $em->remove($travel);
 
         $em->flush();

@@ -43,7 +43,7 @@ class TravelType extends AbstractType
         'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']
       ])
       ->add('save', SubmitType::class, [
-        'label' => 'Create travel',
+        'label' => 'Confirm',
         'attr' => ['class' => 'btn btn-primary', 'style' => 'margin-bottom:15px']
       ]);
   }
