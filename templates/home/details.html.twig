@@ -13,7 +13,7 @@
       <p class="card-text">All included: {{ travel.all_included ? 'Yes' : 'No' }}</p>
       #}
       <div class="btn-group rounded w-100" role="group" aria-label="Basic example">
-        <a class="btn btn-sm rounded-start btn-info" href="/details/{{ travel.id }}">View</a>
+        <a class="btn btn-sm rounded-start btn-info" href="/#{{ travel.id }} ">Back</a>
         <a class="btn btn-sm btn-warning" href="/edit/{{ travel.id }}">Edit</a>
         <a class="btn btn-sm rounded-end btn-danger" href="/delete/{{ travel.id }}">Delete</a>
       </div>
