@@ -94,12 +94,12 @@ class HomeController extends AbstractController
 
 
     #[Route('/delete/{id}', name: 'travel_delete')]
-    public function delete($id)
+    public function delete(ManagerRegistry $doctrine, $id)
     {
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $doctrine->getManager();
 
-        $travel = $em->getRepository('App:Travel')->find($id);
+        $travel = $em->getRepository(Travel::class)->find($id);
         $em->remove($travel);
 
         $em->flush();
